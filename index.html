@@ -27,24 +27,22 @@
 
             height: 250px;
 
-            /* 내용물을 정렬시킬때는 이 4줄이 항상 같이 다닌다. padding을 쓸 필요가 없다. */
-            /* column 세로, row 가로 */
-
-
             /* linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) <-- 배경 어둡게 하기*/
             background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://movie-phinf.pstatic.net/20210715_95/1626338192428gTnJl_JPEG/movie_image.jpg');
             background-position: center;
             background-size: cover;
 
+            /* 내용물을 정렬시킬때는 밑에 4줄이 항상 같이 다닌다. 따라서, padding을 쓸 필요가 없다. */
+
             display: flex;
-            flex-direction: column;
+            flex-direction: column; /* column 세로, row 가로 */
             align-items: center;
             justify-content: center;
         }
 
-        /* 같은 div 안에있는 영화 기록 버튼 이라는 button을 지정할 때 클래스를 달지 않고 이런식으로도 쓸 수 있다.
-        만약 h1을 지칭하고 싶다면 button 대신 h1을 집어 넣어주면 된다. */
-        .mytitle>button {
+        /*  같은 div 안에있는 button을 지정할 때 class를 달지 않고 밑의 방식으로도 쓸 수 있다.
+            만약 h1을 지칭하고 싶다면 기호 뒤 button 대신 h1을 집어 넣어주면 된다. */
+        .mytitle > button {
             width: 250px;
             height: 50px;
 
@@ -53,6 +51,7 @@
 
             border: 1px solid white;
             /* border는 테두리 solid는 실선 */
+
             color: white;
 
             border-radius: 50px;
@@ -60,7 +59,7 @@
             margin-top: 20px;
         }
 
-        /* hover를 붙이면 마우스를 올려놓았을 때 색이 변하거나 텍스트에 변화를 줄 수 있다. */
+        /* 참고 : hover를 붙이면 마우스를 올려놓았을 때 색이 변하거나 텍스트에 변화를 줄 수 있다. */
         .mytitle>button:hover {
             border: 2px solid white;
         }
@@ -79,8 +78,10 @@
             margin: 20px auto 20px auto;
             padding: 20px;
 
-            /* 참고, 아래 옆에방향으로 얼마나 먼지, 밑에 코드는 가운데에서 시작한다는 뜻 그래서 3만 조절해주면 된다. 3이 그림자의 길이 */
             box-shadow: 0px 0px 3px 0px gray;
+        /*  참고 : 위 코드는 그림자의 길이를 조절해주는 코드.
+            각 숫자는 아래, 옆 방향으로부터 얼마나 멀리 떨어져 있는지를 의미하고 현재는 가운데에서 시작 상태.
+            3이란 숫자만 변경해 그림자의 길이를 조절해주면 된다. */
         }
 
         .mybtns {
@@ -98,25 +99,42 @@
     </style>
     <script>
 
-        // function hey() {alert('hi')}
-        // function hey() = 함수다. function hey() 라고 하면, 헤이()라는걸 불러라 ~
-        // 여기서 hey()는?? = 중괄호({}) 안에 있는 것들 = {alert('hi')} = hi 이라는 문자열을 알려라
-        // 언제?? : button onclick="hey()" 버튼을 클릭했을 때
+        // function hey() {
+        //      alert('hi')
+        // }
 
-        // onclick은 html 과 javascript를 연결시켜주는 다리
+        // 위 함수 해석 :
+        // 1. 영화 기록 버튼을 누르면 hey()함수가 작동하는데 내용은?
+        // 2.{}안의 내용
+        // {}보자 alert('hi')가 있네?
+        // 3. 아~! 버튼을 누르면 hi라는 문자열 알림이 나오겠구나~ 라고 해석
+        // 4. 언제?? : (<button onclick="hey()">영화 기록 버튼</button>) 아하! '영화 기록 버튼'을 클릭했을 때!
 
-        // console.log(a) : a를 찍어라 / console.log(a[0]) : a의 0번째 / console.log(a+b) : a+b / console.log(a.length) : a의 전체갯수
+        // 여기서 onclick은 html 과 javascript를 연결시켜주는 다리역할을 한다.
+
+        // console.log(a) : a 출력 / console.log(a[0]) : a의 0번째 출력
+        // console.log(a+b) : a+b값 출력 / console.log(a.length) : a의 전체갯수 출력
+
         // dictionary = {} = {key : value , key : value} 로 이루어져 있다.
-        // dictionary로 불러올때는 콘솔로 찍을때 log()안에 a를 넣고 꺽쇠([])한 후 dictionary의 키 값을 가져온다.
-        // let a = {} / 중괄호가 온다? 그거는 dictionary
-        // let a = [] / 꺽쇠가 온다? 그거는 list
-        // let a = [{}] / 꺽쇠안에 중괄호가 온다? 그거는 list + dictionary
-        // ex) let a = [
-        // {'name':'영수','age':24}
-        // {'name':'영철','age':15}
-        // {'name':'영희','age':21}
-        // ] 일 때,
-        // console.log(a[0]['name']) = 영수 / 이런식으로 찍어볼 수 가 있다.
+        // dictionary로 불러와 console.log 로 찍을때 log()안에 a를 넣고 꺽쇠([])안에 dictionary의 key값을 입력한다.
+
+        // let a = {}
+        // 중괄호가 온다? 그거는 dictionary
+
+        // let a = []
+        // 꺽쇠가 온다? 그거는 list
+
+        // let a = [{}]
+        // 꺽쇠안에 중괄호가 온다? 그거는 list + dictionary
+
+        // ex)  let a = [
+        //          {'name':'영수','age':24}
+        //          {'name':'영철','age':15}
+        //          {'name':'영희','age':21}
+        //      ] 일 때,
+        //      console.log(a[0]['name']) = 영수
+
+        // 이런식으로 값을 출력할 수 있다는걸 알 수 있다.
 
         $(document).ready(function () {
             fetch("http://spartacodingclub.shop/sparta_api/weather/seoul").then(res => res.json()).then(data => {
@@ -132,9 +150,10 @@
                     let desc = a['desc']
                     let star = a['star']
                     let image = a['image']
-                    // 별점 반복 하는 코드 ㅎㅎㅎ
-                    let star_image = '⭐'.repeat(star)
                     
+                    let star_image = '⭐'.repeat(star)
+                    // 별점 반복 하는 코드 ㅎㅎ
+
                     let temp_html = `<div class="col">
                                         <div class="card h-100">
                                             <img src="${image}"
@@ -161,6 +180,7 @@
         <h1>내 생에 최고의 영화들</h1>
         <div>현재 서울의 날씨 : <span id="temp">20</span>도</div>
         <button onclick="hey()">영화 기록 버튼</button>
+        <!-- 여기 hey() 발동 버튼이 있다. -->
     </div>
     <div class="mypost">
         <div class="form-floating mb-3">
