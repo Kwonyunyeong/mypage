@@ -12,7 +12,7 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-    <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
+    <title> 영화 별점 코멘트 남기기 </title>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
@@ -35,6 +35,11 @@
             background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://movie-phinf.pstatic.net/20210715_95/1626338192428gTnJl_JPEG/movie_image.jpg');
             background-position: center;
             background-size: cover;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         /* 같은 div 안에있는 영화 기록 버튼 이라는 button을 지정할 때 클래스를 달지 않고 이런식으로도 쓸 수 있다.
@@ -71,12 +76,12 @@
         .mypost {
             width: 500px;
             margin: 20px auto 20px auto;
-            padding: 20px 20px 20px 20px;
+            padding: 20px;
 
             /* 참고, 아래 옆에방향으로 얼마나 먼지, 밑에 코드는 가운데에서 시작한다는 뜻 그래서 3만 조절해주면 된다. 3이 그림자의 길이 */
             box-shadow: 0px 0px 3px 0px gray;
         }
-        .mybtn {
+        .mybtns {
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -84,10 +89,9 @@
 
             margin-top: 20px;
         }
-        .mybtn > button {
-            margin-right: 13px;
+        .mybtns > button {
+            margin-right: 10px;
         }
-
     </style>
 </head>
 
@@ -101,11 +105,22 @@
             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">영화 URL</label>
         </div>
+        <div class="star mb-3">
+            <label class="input-group-text" for="inputGroupSelect01">별 점</label>
+            <select class="form-select" id="inputGroupSelect01">
+              <option selected>--⭐선택⭐--</option>
+              <option value="1">⭐</option>
+              <option value="2">⭐⭐</option>
+              <option value="3">⭐⭐⭐</option>
+              <option value="4">⭐⭐⭐⭐</option>
+              <option value="5">⭐⭐⭐⭐⭐</option>
+            </select>
+          </div>
         <div class="form-floating">
             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
             <label for="floatingTextarea">코멘트 남겨주세요.</label>
         </div>
-        <div class="mybtn">
+        <div class="mybtns">
             <button type="button" class="btn btn-dark">기록</button>
             <button type="button" class="btn btn-outline-dark">닫기</button>
         </div>
