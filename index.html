@@ -12,7 +12,8 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-    <title>나의 첫 웹 페이지 !!</title>
+    <title>스파르타코딩클럽 | 부트스트랩 연습하기</title>
+
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
 
@@ -26,32 +27,35 @@
 
             height: 250px;
 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+            /* 내용물을 정렬시킬때는 이 4줄이 항상 같이 다닌다. padding을 쓸 필요가 없다. */
+            /* column 세로, row 가로 */
+            
 
+            /* linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) <-- 배경 어둡게 하기*/
             background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://movie-phinf.pstatic.net/20210715_95/1626338192428gTnJl_JPEG/movie_image.jpg');
             background-position: center;
             background-size: cover;
-
         }
 
+        /* 같은 div 안에있는 영화 기록 버튼 이라는 button을 지정할 때 클래스를 달지 않고 이런식으로도 쓸 수 있다.
+        만약 h1을 지칭하고 싶다면 button 대신 h1을 집어 넣어주면 된다. */
         .mytitle>button {
             width: 250px;
             height: 50px;
 
             background-color: transparent;
+            /* 백그라운드 컬러를 없애줘라~ 라는 뜻 */
 
-            color: white;
             border: 1px solid white;
+            /* border는 테두리 solid는 실선 */
+            color: white;
 
             border-radius: 50px;
 
             margin-top: 20px;
-
         }
 
+        /* hover를 붙이면 마우스를 올려놓았을 때 색이 변하거나 텍스트에 변화를 줄 수 있다. */
         .mytitle>button:hover {
             border: 2px solid white;
         }
@@ -64,17 +68,14 @@
             width: 1200px;
             margin: 20px auto 20px auto;
         }
-
         .mypost {
-
-
             width: 500px;
             margin: 20px auto 20px auto;
             padding: 20px 20px 20px 20px;
 
+            /* 참고, 아래 옆에방향으로 얼마나 먼지, 밑에 코드는 가운데에서 시작한다는 뜻 그래서 3만 조절해주면 된다. 3이 그림자의 길이 */
             box-shadow: 0px 0px 3px 0px gray;
         }
-
         .mybtn {
             display: flex;
             flex-direction: row;
@@ -83,52 +84,43 @@
 
             margin-top: 20px;
         }
-
         .mybtn > button {
-            margin: 10px;
+            margin-right: 13px;
         }
+
     </style>
 </head>
 
 <body>
     <div class="mytitle">
-        <h1>내 생에 최고의 영화들!</h1>
-        <button>영화 기록하기</button>
+        <h1>내 생에 최고의 영화들</h1>
+        <button>영화 기록 버튼</button>
     </div>
     <div class="mypost">
         <div class="form-floating mb-3">
             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">영화URL</label>
+            <label for="floatingInput">영화 URL</label>
         </div>
-        <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">별점</label>
-            <select class="form-select" id="inputGroupSelect01">
-              <option selected>--선택하기--</option>
-              <option value="1">⭐</option>
-              <option value="2">⭐⭐</option>
-              <option value="3">⭐⭐⭐</option>
-            </select>
-          </div>
         <div class="form-floating">
             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-            <label for="floatingTextarea">코멘트</label>
+            <label for="floatingTextarea">코멘트 남겨주세요.</label>
         </div>
         <div class="mybtn">
-            <button type="button" class="btn btn-dark">기록하기</button>
+            <button type="button" class="btn btn-dark">기록</button>
             <button type="button" class="btn btn-outline-dark">닫기</button>
         </div>
     </div>
     <div class="mycards">
-        <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="row row-cols-1 row-cols-md-4 g-4">
             <div class="col">
                 <div class="card h-100">
                     <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
                         class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">영화 제목이 들어갑니다.</h5>
-                        <p class="card-text">여기에 코멘트가 들어갑니다.</p>
+                        <h5 class="card-title">영화 제목</h5>
+                        <p class="card-text">코멘트</p>
                         <p>⭐⭐⭐</p>
-                        <p class="mycomment">여기에 나의 의견을 쓰면 되겠죠</p>
+                        <p class="mycomment">나의 의견</p>
                     </div>
                 </div>
             </div>
@@ -137,10 +129,10 @@
                     <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
                         class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">영화 제목이 들어갑니다.</h5>
-                        <p class="card-text">여기에 코멘트가 들어갑니다.</p>
+                        <h5 class="card-title">영화 제목</h5>
+                        <p class="card-text">코멘트</p>
                         <p>⭐⭐⭐</p>
-                        <p class="mycomment">여기에 나의 의견을 쓰면 되겠죠</p>
+                        <p class="mycomment">나의 의견</p>
                     </div>
                 </div>
             </div>
@@ -149,10 +141,10 @@
                     <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
                         class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">영화 제목이 들어갑니다.</h5>
-                        <p class="card-text">여기에 코멘트가 들어갑니다.</p>
+                        <h5 class="card-title">영화 제목</h5>
+                        <p class="card-text">코멘트</p>
                         <p>⭐⭐⭐</p>
-                        <p class="mycomment">여기에 나의 의견을 쓰면 되겠죠</p>
+                        <p class="mycomment">나의 의견</p>
                     </div>
                 </div>
             </div>
@@ -161,10 +153,10 @@
                     <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
                         class="card-img-top" alt="...">
                     <div class="card-body">
-                        <h5 class="card-title">영화 제목이 들어갑니다.</h5>
-                        <p class="card-text">여기에 코멘트가 들어갑니다.</p>
+                        <h5 class="card-title">영화 제목</h5>
+                        <p class="card-text">코멘트</p>
                         <p>⭐⭐⭐</p>
-                        <p class="mycomment">여기에 나의 의견을 쓰면 되겠죠</p>
+                        <p class="mycomment">나의 의견</p>
                     </div>
                 </div>
             </div>
