@@ -12,7 +12,7 @@
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-    <title> 영화 별점 코멘트 남기기 </title>
+    <title> TIL </title>
 
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
@@ -29,7 +29,7 @@
 
             /* 내용물을 정렬시킬때는 이 4줄이 항상 같이 다닌다. padding을 쓸 필요가 없다. */
             /* column 세로, row 가로 */
-            
+
 
             /* linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) <-- 배경 어둡게 하기*/
             background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://movie-phinf.pstatic.net/20210715_95/1626338192428gTnJl_JPEG/movie_image.jpg');
@@ -73,6 +73,7 @@
             width: 1200px;
             margin: 20px auto 20px auto;
         }
+
         .mypost {
             width: 500px;
             margin: 20px auto 20px auto;
@@ -81,6 +82,7 @@
             /* 참고, 아래 옆에방향으로 얼마나 먼지, 밑에 코드는 가운데에서 시작한다는 뜻 그래서 3만 조절해주면 된다. 3이 그림자의 길이 */
             box-shadow: 0px 0px 3px 0px gray;
         }
+
         .mybtns {
             display: flex;
             flex-direction: row;
@@ -89,33 +91,93 @@
 
             margin-top: 20px;
         }
-        .mybtns > button {
+
+        .mybtns>button {
             margin-right: 10px;
         }
     </style>
+    <script>
+
+        // function hey() {alert('hi')}
+        // function hey() = 함수다. function hey() 라고 하면, 헤이()라는걸 불러라 ~
+        // 여기서 hey()는?? = 중괄호({}) 안에 있는 것들 = {alert('hi')} = hi 이라는 문자열을 알려라
+        // 언제?? : button onclick="hey()" 버튼을 클릭했을 때
+
+        // onclick은 html 과 javascript를 연결시켜주는 다리
+
+        // console.log(a) : a를 찍어라 / console.log(a[0]) : a의 0번째 / console.log(a+b) : a+b / console.log(a.length) : a의 전체갯수
+        // dictionary = {} = {key : value , key : value} 로 이루어져 있다.
+        // dictionary로 불러올때는 콘솔로 찍을때 log()안에 a를 넣고 꺽쇠([])한 후 dictionary의 키 값을 가져온다.
+        // let a = {} / 중괄호가 온다? 그거는 dictionary
+        // let a = [] / 꺽쇠가 온다? 그거는 list
+        // let a = [{}] / 꺽쇠안에 중괄호가 온다? 그거는 list + dictionary
+        // ex) let a = [
+        // {'name':'영수','age':24}
+        // {'name':'영철','age':15}
+        // {'name':'영희','age':21}
+        // ] 일 때,
+        // console.log(a[0]['name']) = 영수 / 이런식으로 찍어볼 수 가 있다.
+
+        $(document).ready(function () {
+            fetch("http://spartacodingclub.shop/sparta_api/weather/seoul").then(res => res.json()).then(data => {
+                $('#temp').text(data['temp'])
+            })
+
+            fetch("http://spartacodingclub.shop/web/api/movie").then(res => res.json()).then(data => {
+                let rows = data['movies']
+                $('#cards').empty()
+                rows.forEach((a)=>{
+                    let title = a['title']
+                    let comment = a['comment']
+                    let desc = a['desc']
+                    let star = a['star']
+                    let image = a['image']
+                    // 별점 반복 하는 코드 ㅎㅎㅎ
+                    let star_image = '⭐'.repeat(star)
+                    
+                    let temp_html = `<div class="col">
+                                        <div class="card h-100">
+                                            <img src="${image}"
+                                                class="card-img-top" alt="...">
+                                            <div class="card-body">
+                                                <h5 class="card-title">${title}</h5>
+                                                <p class="card-text">${desc}</p>
+                                                <p>${star_image}</p>
+                                                <p class="mycomment">${comment}</p>
+                                            </div>
+                                        </div>
+                                    </div>`
+                    $('#cards').append(temp_html)
+                })
+            })
+        })
+
+    </script>
+
 </head>
 
 <body>
     <div class="mytitle">
         <h1>내 생에 최고의 영화들</h1>
-        <button>영화 기록 버튼</button>
+        <div>현재 서울의 날씨 : <span id="temp">20</span>도</div>
+        <button onclick="hey()">영화 기록 버튼</button>
     </div>
     <div class="mypost">
         <div class="form-floating mb-3">
             <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
             <label for="floatingInput">영화 URL</label>
         </div>
-        <div class="star mb-3">
+        <div class="input-group mb-3">
             <label class="input-group-text" for="inputGroupSelect01">별 점</label>
             <select class="form-select" id="inputGroupSelect01">
-              <option selected>--⭐선택⭐--</option>
-              <option value="1">⭐</option>
-              <option value="2">⭐⭐</option>
-              <option value="3">⭐⭐⭐</option>
-              <option value="4">⭐⭐⭐⭐</option>
-              <option value="5">⭐⭐⭐⭐⭐</option>
+                <option selected>--⭐선택⭐--</option>
+                <option value="1">⭐</option>
+                <option value="2">⭐⭐</option>
+                <option value="3">⭐⭐⭐</option>
+                <option value="4">⭐⭐⭐⭐</option>
+                <option value="5">⭐⭐⭐⭐⭐</option>
             </select>
-          </div>
+        </div>
         <div class="form-floating">
             <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
             <label for="floatingTextarea">코멘트 남겨주세요.</label>
@@ -126,7 +188,7 @@
         </div>
     </div>
     <div class="mycards">
-        <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div id="cards" class="row row-cols-1 row-cols-md-4 g-4">
             <div class="col">
                 <div class="card h-100">
                     <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
