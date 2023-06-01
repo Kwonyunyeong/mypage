@@ -1,264 +1,187 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+      crossorigin="anonymous"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+      crossorigin="anonymous"
+    ></script>
 
-    <title> TIL </title>
+    <title>푸바오 팬 사이트</title>
 
+    <meta property="og:title" content=" 푸바오 팬 사이트 " />
+    <meta property="og:description" content="푸바오를 사랑하는 만큼" />
+    <meta
+      property="og:image"
+      content="https://www.youthdaily.co.kr/data/photos/20210206/art_16127521655378_0f63f2.jpg"
+    />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap"
+      rel="stylesheet"
+    />
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap');
+      * {
+        font-family: "Noto Serif KR", serif;
+      }
 
-        * {
-            font-family: 'Gowun Dodum', sans-serif;
-        }
+      .mypic {
+        width: 100%;
+        height: 300px;
 
-        .mytitle {
-            background-color: green;
-            color: white;
+        background-image: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.5),
+            rgba(0, 0, 0, 0.5)
+          ),
+          url("https://www.youthdaily.co.kr/data/photos/20210206/art_16127521655378_0f63f2.jpg");
+        background-position: center 30%;
+        background-size: cover;
 
-            height: 250px;
+        color: white;
 
-            /* linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)) <-- 배경 어둡게 하기*/
-            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://movie-phinf.pstatic.net/20210715_95/1626338192428gTnJl_JPEG/movie_image.jpg');
-            background-position: center;
-            background-size: cover;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
 
-            /* 내용물을 정렬시킬때는 밑에 4줄이 항상 같이 다닌다. 따라서, padding을 쓸 필요가 없다. */
+      .mypost {
+        width: 95%;
+        max-width: 500px;
+        margin: 20px auto 20px auto;
 
-            display: flex;
-            flex-direction: column; /* column 세로, row 가로 */
-            align-items: center;
-            justify-content: center;
-        }
+        box-shadow: 0px 0px 3px 0px black;
+        padding: 20px;
+      }
 
-        /*  같은 div 안에있는 button을 지정할 때 class를 달지 않고 밑의 방식으로도 쓸 수 있다.
-            만약 h1을 지칭하고 싶다면 기호 뒤 button 대신 h1을 집어 넣어주면 된다. */
-        .mytitle > button {
-            width: 250px;
-            height: 50px;
+      .mypost > button {
+        margin-top: 15px;
+      }
 
-            background-color: transparent;
-            /* 백그라운드 컬러를 없애줘라~ 라는 뜻 */
+      .mycards {
+        width: 95%;
+        max-width: 500px;
+        margin: auto;
+      }
 
-            border: 1px solid white;
-            /* border는 테두리 solid는 실선 */
-
-            color: white;
-
-            border-radius: 50px;
-
-            margin-top: 20px;
-        }
-
-        /* 참고 : hover를 붙이면 마우스를 올려놓았을 때 색이 변하거나 텍스트에 변화를 줄 수 있다. */
-        .mytitle>button:hover {
-            border: 2px solid white;
-        }
-
-        .mycomment {
-            color: gray;
-        }
-
-        .mycards {
-            width: 1200px;
-            margin: 20px auto 20px auto;
-        }
-
-        .mypost {
-            width: 500px;
-            margin: 20px auto 20px auto;
-            padding: 20px;
-
-            box-shadow: 0px 0px 3px 0px gray;
-        /*  참고 : 위 코드는 그림자의 길이를 조절해주는 코드.
-            각 숫자는 아래, 옆 방향으로부터 얼마나 멀리 떨어져 있는지를 의미하고 현재는 가운데에서 시작 상태.
-            3이란 숫자만 변경해 그림자의 길이를 조절해주면 된다. */
-        }
-
-        .mybtns {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-
-            margin-top: 20px;
-        }
-
-        .mybtns>button {
-            margin-right: 10px;
-        }
+      .mycards > .card {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
     </style>
     <script>
+      $(document).ready(function () {
+        set_temp();
+        show_comment();
+      });
+      function set_temp() {
+        fetch("http://spartacodingclub.shop/sparta_api/weather/seoul")
+          .then((res) => res.json())
+          .then((data) => {
+            let temp = data["temp"];
+            $("#temp").text(temp);
+          });
+      }
+      function save_comment() {
+        let name = $("#name").val();
+        let comment = $("#comment").val();
 
-        // function hey() {
-        //      alert('hi')
-        // }
+        let formData = new FormData();
+        formData.append("name_give", name);
+        formData.append("comment_give", comment);
 
-        // 위 함수 해석 :
-        // 1. 영화 기록 버튼을 누르면 hey()함수가 작동하는데 내용은?
-        // 2.{}안의 내용
-        // {}보자 alert('hi')가 있네?
-        // 3. 아~! 버튼을 누르면 hi라는 문자열 알림이 나오겠구나~ 라고 해석
-        // 4. 언제?? : (<button onclick="hey()">영화 기록 버튼</button>) 아하! '영화 기록 버튼'을 클릭했을 때!
+        fetch("/guestbook", { method: "POST", body: formData })
+          .then((res) => res.json())
+          .then((data) => {
+            alert(data["msg"]);
+            window.location.reload();
+          });
+      }
+      function show_comment() {
+        fetch("/guestbook")
+          .then((res) => res.json())
+          .then((data) => {
+            let rows = data["result"];
+            $("#comment-list").empty();
+            rows.forEach((a) => {
+              let name = a["name"];
+              let comment = a["comment"];
 
-        // 여기서 onclick은 html 과 javascript를 연결시켜주는 다리역할을 한다.
-
-        // console.log(a) : a 출력 / console.log(a[0]) : a의 0번째 출력
-        // console.log(a+b) : a+b값 출력 / console.log(a.length) : a의 전체갯수 출력
-
-        // dictionary = {} = {key : value , key : value} 로 이루어져 있다.
-        // dictionary로 불러와 console.log 로 찍을때 log()안에 a를 넣고 꺽쇠([])안에 dictionary의 key값을 입력한다.
-
-        // let a = {}
-        // 중괄호가 온다? 그거는 dictionary
-
-        // let a = []
-        // 꺽쇠가 온다? 그거는 list
-
-        // let a = [{}]
-        // 꺽쇠안에 중괄호가 온다? 그거는 list + dictionary
-
-        // ex)  let a = [
-        //          {'name':'영수','age':24}
-        //          {'name':'영철','age':15}
-        //          {'name':'영희','age':21}
-        //      ] 일 때,
-        //      console.log(a[0]['name']) = 영수
-
-        // 이런식으로 값을 출력할 수 있다는걸 알 수 있다.
-
-        $(document).ready(function () {
-            fetch("http://spartacodingclub.shop/sparta_api/weather/seoul").then(res => res.json()).then(data => {
-                $('#temp').text(data['temp'])
-            })
-
-            fetch("http://spartacodingclub.shop/web/api/movie").then(res => res.json()).then(data => {
-                let rows = data['movies']
-                $('#cards').empty()
-                rows.forEach((a)=>{
-                    let title = a['title']
-                    let comment = a['comment']
-                    let desc = a['desc']
-                    let star = a['star']
-                    let image = a['image']
-                    
-                    let star_image = '⭐'.repeat(star)
-                    // 별점 반복 하는 코드 ㅎㅎ
-
-                    let temp_html = `<div class="col">
-                                        <div class="card h-100">
-                                            <img src="${image}"
-                                                class="card-img-top" alt="...">
-                                            <div class="card-body">
-                                                <h5 class="card-title">${title}</h5>
-                                                <p class="card-text">${desc}</p>
-                                                <p>${star_image}</p>
-                                                <p class="mycomment">${comment}</p>
-                                            </div>
+              let temp_html = `<div class="card">
+                                        <div class="card-body">
+                                            <blockquote class="blockquote mb-0">
+                                                <p>${comment}</p>
+                                                <footer class="blockquote-footer">${name}</footer>
+                                            </blockquote>
                                         </div>
-                                    </div>`
-                    $('#cards').append(temp_html)
-                })
-            })
-        })
-
+                                    </div>`;
+              $("#comment-list").append(temp_html);
+            });
+          });
+      }
     </script>
+  </head>
 
-</head>
-
-<body>
-    <div class="mytitle">
-        <h1>내 생에 최고의 영화들</h1>
-        <div>현재 서울의 날씨 : <span id="temp">20</span>도</div>
-        <button onclick="hey()">영화 기록 버튼</button>
-        <!-- 여기 hey() 발동 버튼이 있다. -->
+  <body>
+    <div class="mypic">
+      <h1>푸바오 팬명록</h1>
+      <p>현재기온: <span id="temp">36</span>도</p>
     </div>
     <div class="mypost">
-        <div class="form-floating mb-3">
-            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-            <label for="floatingInput">영화 URL</label>
-        </div>
-        <div class="input-group mb-3">
-            <label class="input-group-text" for="inputGroupSelect01">별 점</label>
-            <select class="form-select" id="inputGroupSelect01">
-                <option selected>--⭐선택⭐--</option>
-                <option value="1">⭐</option>
-                <option value="2">⭐⭐</option>
-                <option value="3">⭐⭐⭐</option>
-                <option value="4">⭐⭐⭐⭐</option>
-                <option value="5">⭐⭐⭐⭐⭐</option>
-            </select>
-        </div>
-        <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="floatingTextarea"></textarea>
-            <label for="floatingTextarea">코멘트 남겨주세요.</label>
-        </div>
-        <div class="mybtns">
-            <button type="button" class="btn btn-dark">기록</button>
-            <button type="button" class="btn btn-outline-dark">닫기</button>
-        </div>
+      <div class="form-floating mb-3">
+        <input type="text" class="form-control" id="name" placeholder="url" />
+        <label for="floatingInput">닉네임</label>
+      </div>
+      <div class="form-floating">
+        <textarea
+          class="form-control"
+          placeholder="Leave a comment here"
+          id="comment"
+          style="height: 100px"
+        ></textarea>
+        <label for="floatingTextarea2">응원의 말</label>
+      </div>
+      <button onclick="save_comment()" type="button" class="btn btn-dark">
+        사랑 남기기
+      </button>
     </div>
-    <div class="mycards">
-        <div id="cards" class="row row-cols-1 row-cols-md-4 g-4">
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">영화 제목</h5>
-                        <p class="card-text">코멘트</p>
-                        <p>⭐⭐⭐</p>
-                        <p class="mycomment">나의 의견</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">영화 제목</h5>
-                        <p class="card-text">코멘트</p>
-                        <p>⭐⭐⭐</p>
-                        <p class="mycomment">나의 의견</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">영화 제목</h5>
-                        <p class="card-text">코멘트</p>
-                        <p>⭐⭐⭐</p>
-                        <p class="mycomment">나의 의견</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card h-100">
-                    <img src="https://movie-phinf.pstatic.net/20210728_221/1627440327667GyoYj_JPEG/movie_image.jpg"
-                        class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title">영화 제목</h5>
-                        <p class="card-text">코멘트</p>
-                        <p>⭐⭐⭐</p>
-                        <p class="mycomment">나의 의견</p>
-                    </div>
-                </div>
-            </div>
+    <div class="mycards" id="comment-list">
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>새로운 앨범 너무 멋져요!</p>
+            <footer class="blockquote-footer">호빵맨</footer>
+          </blockquote>
         </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>새로운 앨범 너무 멋져요!</p>
+            <footer class="blockquote-footer">호빵맨</footer>
+          </blockquote>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <blockquote class="blockquote mb-0">
+            <p>새로운 앨범 너무 멋져요!</p>
+            <footer class="blockquote-footer">호빵맨</footer>
+          </blockquote>
+        </div>
+      </div>
     </div>
-</body>
-
+  </body>
 </html>
